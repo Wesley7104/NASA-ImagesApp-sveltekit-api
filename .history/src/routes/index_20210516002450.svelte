@@ -1,0 +1,46 @@
+<script context="module">
+  
+    export async function load({ fetch }) {
+      const response = await fetch('/api');
+  
+    if (response.ok) return { props: { apiComplete: await response.json() } };
+    
+    return {
+      status: response.status,
+      error: new Error()
+     };
+    }
+
+  </script>
+  <script>
+   export let apiComplete;
+  </script>
+
+<main>
+  <container class="">
+   
+  </container>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          {apiComplete.title}
+        </h1>
+        <h2 class="subtitle myTextStyle">{apiComplete.explanation}</h2>
+        <p>"Copyright Info: "{apiComplete.copyright}</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<style>
+.myTextStyle {
+  color: #b9b9b9;
+}
+
+.hero {
+  background-image:url(apiComplete.url)
+}
+
+</style>
