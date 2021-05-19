@@ -24,7 +24,7 @@
   </script>
 
 <main>
-  <section class="hero myHeroImage is-fullheight has-background" style="background-image: url('{apiImage}')">
+  <section class="hero myHeroImage is-fullheight is-primary has-background" style="background-image: url('{apiImage}')">
     <!-- <img src={apiComplete.url} alt={apiComplete.title}> -->
       <div class="hero-body">
         <h1 class="title myTextStyle"> {apiComplete.title}</h1>

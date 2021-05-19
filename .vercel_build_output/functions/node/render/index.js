@@ -2481,9 +2481,9 @@ function init(settings) {
     amp: false,
     dev: false,
     entry: {
-      file: "/./_app/start-ab0c1a7f.js",
+      file: "/./_app/start-71521147.js",
       css: ["/./_app/assets/start-a8cd1609.css"],
-      js: ["/./_app/start-ab0c1a7f.js", "/./_app/chunks/vendor-729f3cc9.js"]
+      js: ["/./_app/start-71521147.js", "/./_app/chunks/vendor-729f3cc9.js"]
     },
     fetched: void 0,
     floc: false,
@@ -2519,6 +2519,13 @@ var manifest = {
       pattern: /^\/$/,
       params: empty,
       a: ["src/routes/__layout.svelte", "src/routes/index.svelte"],
+      b: [".svelte-kit/build/components/error.svelte"]
+    },
+    {
+      type: "page",
+      pattern: /^\/components\/AltNav\/?$/,
+      params: empty,
+      a: ["src/routes/__layout.svelte", "src/routes/components/AltNav.svelte"],
       b: [".svelte-kit/build/components/error.svelte"]
     },
     {
@@ -2566,6 +2573,9 @@ var module_lookup = {
   "src/routes/index.svelte": () => Promise.resolve().then(function() {
     return index;
   }),
+  "src/routes/components/AltNav.svelte": () => Promise.resolve().then(function() {
+    return AltNav$1;
+  }),
   "src/routes/components/Footer.svelte": () => Promise.resolve().then(function() {
     return Footer$1;
   }),
@@ -2576,7 +2586,7 @@ var module_lookup = {
     return about;
   })
 };
-var metadata_lookup = {"src/routes/__layout.svelte": {"entry": "/./_app/pages/__layout.svelte-5c02a811.js", "css": ["/./_app/assets/pages/__layout.svelte-fd1f4a3d.css"], "js": ["/./_app/pages/__layout.svelte-5c02a811.js", "/./_app/chunks/vendor-729f3cc9.js", "/./_app/pages/components/Nav.svelte-feacd91b.js"], "styles": null}, ".svelte-kit/build/components/error.svelte": {"entry": "/./_app/error.svelte-8ce23567.js", "css": [], "js": ["/./_app/error.svelte-8ce23567.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/index.svelte": {"entry": "/./_app/pages/index.svelte-4abf9888.js", "css": ["/./_app/assets/pages/index.svelte-1443099b.css"], "js": ["/./_app/pages/index.svelte-4abf9888.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/components/Footer.svelte": {"entry": "/./_app/pages/components/Footer.svelte-7c4791c6.js", "css": [], "js": ["/./_app/pages/components/Footer.svelte-7c4791c6.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/components/Nav.svelte": {"entry": "/./_app/pages/components/Nav.svelte-feacd91b.js", "css": [], "js": ["/./_app/pages/components/Nav.svelte-feacd91b.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/about.svelte": {"entry": "/./_app/pages/about.svelte-4c71ca46.js", "css": ["/./_app/assets/pages/about.svelte-78c9f9b1.css"], "js": ["/./_app/pages/about.svelte-4c71ca46.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}};
+var metadata_lookup = {"src/routes/__layout.svelte": {"entry": "/./_app/pages/__layout.svelte-a355002d.js", "css": ["/./_app/assets/pages/__layout.svelte-fd1f4a3d.css"], "js": ["/./_app/pages/__layout.svelte-a355002d.js", "/./_app/chunks/vendor-729f3cc9.js", "/./_app/pages/components/AltNav.svelte-7a0739ea.js"], "styles": null}, ".svelte-kit/build/components/error.svelte": {"entry": "/./_app/error.svelte-8ce23567.js", "css": [], "js": ["/./_app/error.svelte-8ce23567.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/index.svelte": {"entry": "/./_app/pages/index.svelte-88aba429.js", "css": ["/./_app/assets/pages/index.svelte-cf460fae.css"], "js": ["/./_app/pages/index.svelte-88aba429.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/components/AltNav.svelte": {"entry": "/./_app/pages/components/AltNav.svelte-7a0739ea.js", "css": [], "js": ["/./_app/pages/components/AltNav.svelte-7a0739ea.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/components/Footer.svelte": {"entry": "/./_app/pages/components/Footer.svelte-7c4791c6.js", "css": [], "js": ["/./_app/pages/components/Footer.svelte-7c4791c6.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/components/Nav.svelte": {"entry": "/./_app/pages/components/Nav.svelte-feacd91b.js", "css": [], "js": ["/./_app/pages/components/Nav.svelte-feacd91b.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/about.svelte": {"entry": "/./_app/pages/about.svelte-4c71ca46.js", "css": ["/./_app/assets/pages/about.svelte-78c9f9b1.css"], "js": ["/./_app/pages/about.svelte-4c71ca46.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}};
 async function load_component(file) {
   return {
     module: await module_lookup[file](),
@@ -2627,8 +2637,24 @@ var Footer$1 = /* @__PURE__ */ Object.freeze({
   [Symbol.toStringTag]: "Module",
   "default": Footer
 });
+var AltNav = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<nav class="${"font-sans flex flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-2 px-6 bg-white shadow sm:items-baseline w-full"}"><div class="${"mb-2 sm:mb-0 inner"}"><a href="${"/home"}" class="${"text-2xl no-underline text-grey-darkest hover:text-blue-dark font-sans font-bold"}">LogoText</a><br>
+      <span class="${"text-xs text-grey-dark"}">Beautiful New Tagline</span></div>
+  
+    <div class="${"sm:mb-0 self-center"}">
+      <a href="${"/"}" class="${"text-md no-underline text-black hover:text-blue-dark ml-2 px-1"}">Link1</a>
+      <a href="${"/"}" class="${"text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1"}">Link2</a>
+      
+      <a href="${"/"}" class="${"text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1"}">Link3</a>
+      </div></nav>`;
+});
+var AltNav$1 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": AltNav
+});
 var _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `${validate_component(Nav, "Nav").$$render($$result, {}, {}, {})}
+  return `${validate_component(AltNav, "AltNav").$$render($$result, {}, {}, {})}
 
 ${slots.default ? slots.default({}) : ``}
 
@@ -2663,8 +2689,8 @@ var error2 = /* @__PURE__ */ Object.freeze({
   load: load$1
 });
 var css$1 = {
-  code: ".myTextStyle.svelte-i3rbji{color:#d4d4d4;background-color:hsla(0, 0%, 34%, 0.726)}",
-  map: `{"version":3,"file":"index.svelte","sources":["index.svelte"],"sourcesContent":["<script context=\\"module\\">\\n  \\n    export async function load({ fetch }) {\\n      const response = await fetch('/api');\\n  \\n    if (response.ok) return { props: { apiComplete: await response.json() } };\\n    \\n    return {\\n      status: response.status,\\n      error: new Error()\\n     };\\n    }\\n\\n  </script>\\n  <script>\\n   export let apiComplete;\\n   export let apiImage;\\n   if (apiComplete.url){\\n     apiImage = apiComplete.url;\\n  } else {\\n    apiImage = \\"no image available... Sorry something is broken... :(\\";\\n  }\\n   \\n  </script>\\n\\n<main>\\n  <section class=\\"hero is-fullheight is-primary has-background\\" style=\\"background-image: url('{apiImage}')\\">\\n    <!-- <img src={apiComplete.url} alt={apiComplete.title}> -->\\n      <div class=\\"hero-body\\">\\n        <h1 class=\\"title myTextStyle\\">Image Title: </h1>\\n        <h1 class=\\"title myTextStyle\\"> {apiComplete.title}</h1>\\n      </div>\\n    </section>\\n    <div class=\\"container\\">\\n      <br>\\n      <h2 class=\\"text myTextStyle\\">{apiComplete.explanation}</h2>\\n      <br>\\n      <p class =\\"myTextStyle\\">Copyright Info: {apiComplete.copyright}</p>\\n    </div>\\n\\n\\n</main>\\n\\n  \\n<style>\\n  .myTextStyle {\\n    color: #d4d4d4;\\n    background-color: hsla(0, 0%, 34%, 0.726);\\n    \\n  }\\n  \\n  </style>"],"names":[],"mappings":"AA6CE,YAAY,cAAC,CAAC,AACZ,KAAK,CAAE,OAAO,CACd,gBAAgB,CAAE,KAAK,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,GAAG,CAAC,CAAC,KAAK,CAAC,AAE3C,CAAC"}`
+  code: ".myTextStyle.svelte-10uwhq{color:#d4d4d4;background-color:hsla(0, 0%, 34%, 0.726)}.myHeroImage.svelte-10uwhq{display:block;position:absolute;background-image:linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);background-repeat:no-repeat;background-size:stretch;bottom:0;left:0;right:0;height:75vh;width:100%;content:''}",
+  map: `{"version":3,"file":"index.svelte","sources":["index.svelte"],"sourcesContent":["<script context=\\"module\\">\\n  \\n    export async function load({ fetch }) {\\n      const response = await fetch('/api');\\n  \\n    if (response.ok) return { props: { apiComplete: await response.json() } };\\n    \\n    return {\\n      status: response.status,\\n      error: new Error()\\n     };\\n    }\\n\\n  </script>\\n  <script>\\n   export let apiComplete;\\n   export let apiImage;\\n   if (apiComplete.url){\\n     apiImage = apiComplete.url;\\n  } else {\\n    apiImage = \\"no image available... Sorry something is broken... :(\\";\\n  }\\n   \\n  </script>\\n\\n<main>\\n  <section class=\\"hero myHeroImage is-fullheight is-primary has-background\\" style=\\"background-image: url('{apiImage}')\\">\\n    <!-- <img src={apiComplete.url} alt={apiComplete.title}> -->\\n      <div class=\\"hero-body\\">\\n        <h1 class=\\"title myTextStyle\\"> {apiComplete.title}</h1>\\n      </div>\\n    </section>\\n    <div class=\\"container\\">\\n      <br>\\n      <h2 class=\\"text myTextStyle\\">{apiComplete.explanation}</h2>\\n      <br>\\n      <p class =\\"myTextStyle\\">Copyright Info: {apiComplete.copyright}</p>\\n    </div>\\n\\n\\n</main>\\n\\n  \\n<style>\\n  .myTextStyle {\\n    color: #d4d4d4;\\n    background-color: hsla(0, 0%, 34%, 0.726);\\n    \\n  }\\n\\n  .myHeroImage {\\n    display: block;\\n  position: absolute;\\n  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);\\n  background-repeat: no-repeat;\\n  background-size: stretch;\\n  bottom: 0;\\n  left:0;\\n  right:0;\\n  height: 75vh;\\n  width: 100%;\\n  content: '';\\n  \\n  }\\n  \\n  </style>"],"names":[],"mappings":"AA4CE,YAAY,cAAC,CAAC,AACZ,KAAK,CAAE,OAAO,CACd,gBAAgB,CAAE,KAAK,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,GAAG,CAAC,CAAC,KAAK,CAAC,AAE3C,CAAC,AAED,YAAY,cAAC,CAAC,AACZ,OAAO,CAAE,KAAK,CAChB,QAAQ,CAAE,QAAQ,CAClB,gBAAgB,CAAE,gBAAgB,EAAE,CAAC,MAAM,CAAC,CAAC,KAAK,GAAG,CAAC,CAAC,GAAG,CAAC,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,IAAI,CAAC,IAAI,CAAC,CACjF,iBAAiB,CAAE,SAAS,CAC5B,eAAe,CAAE,OAAO,CACxB,MAAM,CAAE,CAAC,CACT,KAAK,CAAC,CACN,MAAM,CAAC,CACP,MAAM,CAAE,IAAI,CACZ,KAAK,CAAE,IAAI,CACX,OAAO,CAAE,EAAE,AAEX,CAAC"}`
 };
 async function load({fetch: fetch22}) {
   const response = await fetch22("/api");
@@ -2690,13 +2716,12 @@ var Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   if ($$props.apiImage === void 0 && $$bindings.apiImage && apiImage !== void 0)
     $$bindings.apiImage(apiImage);
   $$result.css.add(css$1);
-  return `<main><section class="${"hero is-fullheight is-primary has-background"}" style="${"background-image: url('" + escape2(apiImage) + "')"}">
-      <div class="${"hero-body"}"><h1 class="${"title myTextStyle svelte-i3rbji"}">Image Title: </h1>
-        <h1 class="${"title myTextStyle svelte-i3rbji"}">${escape2(apiComplete.title)}</h1></div></section>
+  return `<main><section class="${"hero myHeroImage is-fullheight is-primary has-background svelte-10uwhq"}" style="${"background-image: url('" + escape2(apiImage) + "')"}">
+      <div class="${"hero-body"}"><h1 class="${"title myTextStyle svelte-10uwhq"}">${escape2(apiComplete.title)}</h1></div></section>
     <div class="${"container"}"><br>
-      <h2 class="${"text myTextStyle svelte-i3rbji"}">${escape2(apiComplete.explanation)}</h2>
+      <h2 class="${"text myTextStyle svelte-10uwhq"}">${escape2(apiComplete.explanation)}</h2>
       <br>
-      <p class="${"myTextStyle svelte-i3rbji"}">Copyright Info: ${escape2(apiComplete.copyright)}</p></div>
+      <p class="${"myTextStyle svelte-10uwhq"}">Copyright Info: ${escape2(apiComplete.copyright)}</p></div>
 
 
 </main>`;

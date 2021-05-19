@@ -24,7 +24,7 @@
   </script>
 
 <main>
-  <section class="hero myHeroImage is-fullheight has-background" style="background-image: url('{apiImage}')">
+  <section class="hero myHeroImage is-fullheight is-primary has-background" style="background-image: url('{apiImage}')">
     <!-- <img src={apiComplete.url} alt={apiComplete.title}> -->
       <div class="hero-body">
         <h1 class="title myTextStyle"> {apiComplete.title}</h1>
@@ -53,7 +53,7 @@
   position: absolute;
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
   background-repeat: no-repeat;
-  background-size: stretch;
+  background-size: contain;
   bottom: 0;
   left:0;
   right:0;

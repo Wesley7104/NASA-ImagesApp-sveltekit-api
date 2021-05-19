@@ -5,7 +5,7 @@
     import AltNav from './components/AltNav.svelte';
 </script>
 
-<Nav />
+<AltNav />
 
 <slot />
 
