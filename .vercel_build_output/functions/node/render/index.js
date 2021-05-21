@@ -2358,6 +2358,11 @@ function create_ssr_component(fn) {
     $$render
   };
 }
+function add_attribute(name, value, boolean) {
+  if (value == null || boolean && !value)
+    return "";
+  return ` ${name}${value === true ? "" : `=${typeof value === "string" ? JSON.stringify(escape2(value)) : `"${value}"`}`}`;
+}
 function destroy_component(component, detaching) {
   const $$ = component.$$;
   if ($$.fragment !== null) {
@@ -2481,9 +2486,9 @@ function init(settings) {
     amp: false,
     dev: false,
     entry: {
-      file: "/./_app/start-71521147.js",
+      file: "/./_app/start-472c8222.js",
       css: ["/./_app/assets/start-a8cd1609.css"],
-      js: ["/./_app/start-71521147.js", "/./_app/chunks/vendor-729f3cc9.js"]
+      js: ["/./_app/start-472c8222.js", "/./_app/chunks/vendor-2f692bdd.js"]
     },
     fetched: void 0,
     floc: false,
@@ -2519,13 +2524,6 @@ var manifest = {
       pattern: /^\/$/,
       params: empty,
       a: ["src/routes/__layout.svelte", "src/routes/index.svelte"],
-      b: [".svelte-kit/build/components/error.svelte"]
-    },
-    {
-      type: "page",
-      pattern: /^\/components\/AltNav\/?$/,
-      params: empty,
-      a: ["src/routes/__layout.svelte", "src/routes/components/AltNav.svelte"],
       b: [".svelte-kit/build/components/error.svelte"]
     },
     {
@@ -2573,9 +2571,6 @@ var module_lookup = {
   "src/routes/index.svelte": () => Promise.resolve().then(function() {
     return index;
   }),
-  "src/routes/components/AltNav.svelte": () => Promise.resolve().then(function() {
-    return AltNav$1;
-  }),
   "src/routes/components/Footer.svelte": () => Promise.resolve().then(function() {
     return Footer$1;
   }),
@@ -2586,7 +2581,7 @@ var module_lookup = {
     return about;
   })
 };
-var metadata_lookup = {"src/routes/__layout.svelte": {"entry": "/./_app/pages/__layout.svelte-a355002d.js", "css": ["/./_app/assets/pages/__layout.svelte-fd1f4a3d.css"], "js": ["/./_app/pages/__layout.svelte-a355002d.js", "/./_app/chunks/vendor-729f3cc9.js", "/./_app/pages/components/AltNav.svelte-7a0739ea.js"], "styles": null}, ".svelte-kit/build/components/error.svelte": {"entry": "/./_app/error.svelte-8ce23567.js", "css": [], "js": ["/./_app/error.svelte-8ce23567.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/index.svelte": {"entry": "/./_app/pages/index.svelte-88aba429.js", "css": ["/./_app/assets/pages/index.svelte-cf460fae.css"], "js": ["/./_app/pages/index.svelte-88aba429.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/components/AltNav.svelte": {"entry": "/./_app/pages/components/AltNav.svelte-7a0739ea.js", "css": [], "js": ["/./_app/pages/components/AltNav.svelte-7a0739ea.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/components/Footer.svelte": {"entry": "/./_app/pages/components/Footer.svelte-7c4791c6.js", "css": [], "js": ["/./_app/pages/components/Footer.svelte-7c4791c6.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/components/Nav.svelte": {"entry": "/./_app/pages/components/Nav.svelte-feacd91b.js", "css": [], "js": ["/./_app/pages/components/Nav.svelte-feacd91b.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}, "src/routes/about.svelte": {"entry": "/./_app/pages/about.svelte-4c71ca46.js", "css": ["/./_app/assets/pages/about.svelte-78c9f9b1.css"], "js": ["/./_app/pages/about.svelte-4c71ca46.js", "/./_app/chunks/vendor-729f3cc9.js"], "styles": null}};
+var metadata_lookup = {"src/routes/__layout.svelte": {"entry": "/./_app/pages/__layout.svelte-6ebf9a7a.js", "css": ["/./_app/assets/pages/__layout.svelte-b31ba766.css"], "js": ["/./_app/pages/__layout.svelte-6ebf9a7a.js", "/./_app/chunks/vendor-2f692bdd.js", "/./_app/pages/components/Nav.svelte-b123ba0d.js", "/./_app/pages/components/Footer.svelte-473e22fc.js"], "styles": null}, ".svelte-kit/build/components/error.svelte": {"entry": "/./_app/error.svelte-6ac62474.js", "css": [], "js": ["/./_app/error.svelte-6ac62474.js", "/./_app/chunks/vendor-2f692bdd.js"], "styles": null}, "src/routes/index.svelte": {"entry": "/./_app/pages/index.svelte-efa534a9.js", "css": ["/./_app/assets/pages/index.svelte-8620015b.css"], "js": ["/./_app/pages/index.svelte-efa534a9.js", "/./_app/chunks/vendor-2f692bdd.js"], "styles": null}, "src/routes/components/Footer.svelte": {"entry": "/./_app/pages/components/Footer.svelte-473e22fc.js", "css": [], "js": ["/./_app/pages/components/Footer.svelte-473e22fc.js", "/./_app/chunks/vendor-2f692bdd.js"], "styles": null}, "src/routes/components/Nav.svelte": {"entry": "/./_app/pages/components/Nav.svelte-b123ba0d.js", "css": [], "js": ["/./_app/pages/components/Nav.svelte-b123ba0d.js", "/./_app/chunks/vendor-2f692bdd.js"], "styles": null}, "src/routes/about.svelte": {"entry": "/./_app/pages/about.svelte-cddbc14f.js", "css": ["/./_app/assets/pages/about.svelte-78c9f9b1.css"], "js": ["/./_app/pages/about.svelte-cddbc14f.js", "/./_app/chunks/vendor-2f692bdd.js"], "styles": null}};
 async function load_component(file) {
   return {
     module: await module_lookup[file](),
@@ -2617,11 +2612,10 @@ var index$1 = /* @__PURE__ */ Object.freeze({
   get
 });
 var Nav = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<nav class="${"myNav is-dark nav-shadow"}"><div class="${"columns"}"><div class="${"nav-left column is-one-third"}"><a class="${"links"}" href="${"/"}"><h1 class="${"title is-6"}">Nasa Image Viewer App</h1></a></div>
-        <div class="${"nav-center column auto"}"><p class="${"text-color"}">Created By: <a class="${"links"}" href="${"https://github.com/Wesley7104"}">Wesley Randolph</a> @ <a class="${"links"}" href="${"http://randev.tech"}">RanDev.Co</a></p></div>
-        <div class="${"nav-right auto"}"><a href="${"https://github.com/Wesley7104"}" class="${"button is-github is-dark"}">Github</a></div></div>
-    
-</nav>`;
+  return `<div class="${"container is-fluid"}"><nav class="${"myNav is-dark nav-shadow"}"><div class="${"columns"}"><div class="${"nav-left column is-one-third"}"><a class="${"links"}" href="${"/"}"><h1 class="${"title is-6"}">Nasa Image Viewer App</h1></a></div>
+                <div class="${"nav-center column auto"}"></div>
+                <div class="${"nav-right auto"}"><a href="${"https://github.com/Wesley7104"}" class="${" is-github is-dark"}"><span class="${"icon is-medium is-dark"}"><i class="${"fab fa-lg fa-github"}" style="${"color:lightslategray"}"></i></span></a></div></div></nav>
+</div>`;
 });
 var Nav$1 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
@@ -2629,36 +2623,20 @@ var Nav$1 = /* @__PURE__ */ Object.freeze({
   "default": Nav
 });
 var Footer = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<footer class="${"footer dark"}"><div class="${"content has-text-centered"}"><p><strong>Created By:</strong><a href="${"https://github.com/Wesley7104"}">Wesley Randolph</a>. The source code is MIT licensed
-        <a href="${"/"}">MIT</a></p></div></footer>`;
+  return `<div class="${"container is-fluid"}"><footer class="${"footer is-dark"}"><div class="${"has-text-centered"}"><h4 style="${"color:lightslategray"}">App Created By: <a href="${"https://www.facebook.com/wesley.randolph.3/"}">Wesley Randolph</a>. Built by  
+        <a href="${"/https://randev.tech"}">RanDev.Co</a></h4></div></footer></div>`;
 });
 var Footer$1 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": Footer
 });
-var AltNav = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<nav class="${"font-sans flex flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-2 px-6 bg-white shadow sm:items-baseline w-full"}"><div class="${"mb-2 sm:mb-0 inner"}"><a href="${"/home"}" class="${"text-2xl no-underline text-grey-darkest hover:text-blue-dark font-sans font-bold"}">LogoText</a><br>
-      <span class="${"text-xs text-grey-dark"}">Beautiful New Tagline</span></div>
-  
-    <div class="${"sm:mb-0 self-center"}">
-      <a href="${"/"}" class="${"text-md no-underline text-black hover:text-blue-dark ml-2 px-1"}">Link1</a>
-      <a href="${"/"}" class="${"text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1"}">Link2</a>
-      
-      <a href="${"/"}" class="${"text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1"}">Link3</a>
-      </div></nav>`;
-});
-var AltNav$1 = /* @__PURE__ */ Object.freeze({
-  __proto__: null,
-  [Symbol.toStringTag]: "Module",
-  "default": AltNav
-});
 var _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `${validate_component(AltNav, "AltNav").$$render($$result, {}, {}, {})}
+  return `${validate_component(Nav, "Nav").$$render($$result, {}, {}, {})}
 
 ${slots.default ? slots.default({}) : ``}
 
-`;
+${validate_component(Footer, "Footer").$$render($$result, {}, {}, {})}`;
 });
 var __layout = /* @__PURE__ */ Object.freeze({
   __proto__: null,
@@ -2689,8 +2667,8 @@ var error2 = /* @__PURE__ */ Object.freeze({
   load: load$1
 });
 var css$1 = {
-  code: ".myTextStyle.svelte-10uwhq{color:#d4d4d4;background-color:hsla(0, 0%, 34%, 0.726)}.myHeroImage.svelte-10uwhq{display:block;position:absolute;background-image:linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);background-repeat:no-repeat;background-size:stretch;bottom:0;left:0;right:0;height:75vh;width:100%;content:''}",
-  map: `{"version":3,"file":"index.svelte","sources":["index.svelte"],"sourcesContent":["<script context=\\"module\\">\\n  \\n    export async function load({ fetch }) {\\n      const response = await fetch('/api');\\n  \\n    if (response.ok) return { props: { apiComplete: await response.json() } };\\n    \\n    return {\\n      status: response.status,\\n      error: new Error()\\n     };\\n    }\\n\\n  </script>\\n  <script>\\n   export let apiComplete;\\n   export let apiImage;\\n   if (apiComplete.url){\\n     apiImage = apiComplete.url;\\n  } else {\\n    apiImage = \\"no image available... Sorry something is broken... :(\\";\\n  }\\n   \\n  </script>\\n\\n<main>\\n  <section class=\\"hero myHeroImage is-fullheight is-primary has-background\\" style=\\"background-image: url('{apiImage}')\\">\\n    <!-- <img src={apiComplete.url} alt={apiComplete.title}> -->\\n      <div class=\\"hero-body\\">\\n        <h1 class=\\"title myTextStyle\\"> {apiComplete.title}</h1>\\n      </div>\\n    </section>\\n    <div class=\\"container\\">\\n      <br>\\n      <h2 class=\\"text myTextStyle\\">{apiComplete.explanation}</h2>\\n      <br>\\n      <p class =\\"myTextStyle\\">Copyright Info: {apiComplete.copyright}</p>\\n    </div>\\n\\n\\n</main>\\n\\n  \\n<style>\\n  .myTextStyle {\\n    color: #d4d4d4;\\n    background-color: hsla(0, 0%, 34%, 0.726);\\n    \\n  }\\n\\n  .myHeroImage {\\n    display: block;\\n  position: absolute;\\n  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);\\n  background-repeat: no-repeat;\\n  background-size: stretch;\\n  bottom: 0;\\n  left:0;\\n  right:0;\\n  height: 75vh;\\n  width: 100%;\\n  content: '';\\n  \\n  }\\n  \\n  </style>"],"names":[],"mappings":"AA4CE,YAAY,cAAC,CAAC,AACZ,KAAK,CAAE,OAAO,CACd,gBAAgB,CAAE,KAAK,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,GAAG,CAAC,CAAC,KAAK,CAAC,AAE3C,CAAC,AAED,YAAY,cAAC,CAAC,AACZ,OAAO,CAAE,KAAK,CAChB,QAAQ,CAAE,QAAQ,CAClB,gBAAgB,CAAE,gBAAgB,EAAE,CAAC,MAAM,CAAC,CAAC,KAAK,GAAG,CAAC,CAAC,GAAG,CAAC,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,IAAI,CAAC,IAAI,CAAC,CACjF,iBAAiB,CAAE,SAAS,CAC5B,eAAe,CAAE,OAAO,CACxB,MAAM,CAAE,CAAC,CACT,KAAK,CAAC,CACN,MAAM,CAAC,CACP,MAAM,CAAE,IAAI,CACZ,KAAK,CAAE,IAAI,CACX,OAAO,CAAE,EAAE,AAEX,CAAC"}`
+  code: ".myTextStyle.svelte-1jj7j5h{padding:1rem;color:#d4d4d4;background-color:hsla(0, 0%, 34%, 0.726)}",
+  map: `{"version":3,"file":"index.svelte","sources":["index.svelte"],"sourcesContent":["<script context=\\"module\\">\\n  \\n    export async function load({ fetch }) {\\n      const response = await fetch('/api');\\n  \\n    if (response.ok) return { props: { apiComplete: await response.json() } };\\n    \\n    return {\\n      status: response.status,\\n      error: new Error()\\n     };\\n    }\\n\\n  </script>\\n  <script>\\n   export let apiComplete;\\n   export let apiImage;\\n   export let isImgPublicDomain;\\n   if (apiComplete.url){\\n     apiImage = apiComplete.url;\\n  } else {\\n    apiImage = \\"no image available... Sorry something is broken... :(\\";\\n  }\\n   \\n  if (apiComplete.copyright === \\"undefined\\"){\\n    isImgPublicDomain = \\"Public Domain Image\\";\\n  } else {\\n    isImgPublicDomain = apiComplete.copyright;\\n  }\\n  </script>\\n\\n<main>\\n  <div class=\\"container\\">\\n    \\n    \\n    <!-- Hero Section -->\\n    <section class=\\"hero is-fullheight has-background\\" >\\n      <!-- style=\\"background-image: url('{apiImage}')\\"\\n        <img src={apiComplete.url} alt={apiComplete.title}> -->\\n      <div class=\\"hero-head\\">\\n        <p class=\\"text myTextStyle has-text-centered\\" >Astronomy Picture of the Day (APOD):</p>\\n        <h1 class=\\"title myTextStyle has-text-centered\\"> {apiComplete.title}</h1>\\n      </div>  \\n      <div>\\n        <!-- Button Section -->\\n        <nav class=\\"pagination is-dark is-centered\\" role=\\"navigation\\" aria-label=\\"pagination\\">\\n          <a class=\\"pagination-previous\\">Previous</a>\\n          <a class=\\"pagination-next\\">Next page</a>\\n          <ul class=\\"pagination-list\\">\\n            <li><a class=\\"pagination-link is-current\\" aria-label=\\"Goto page 1\\">1</a></li>\\n          </ul>\\n        </nav>\\n      </div>\\n\\n      <div class=\\"hero-body \\">\\n        <img src={apiComplete.url} alt={apiComplete.title}>\\n      </div>\\n      <div class=\\"hero-foot\\">\\n          <h2 class=\\"text myTextStyle\\">{apiComplete.explanation}</h2>\\n        \\n          <p class =\\"text myTextStyle\\">Image Copyright Info: {apiComplete.copyright}</p>\\n      </div>\\n    </section>\\n    \\n    \\n      \\n  </div>\\n\\n\\n</main>\\n\\n  \\n<style>\\n  .myTextStyle {\\n    padding: 1rem;\\n    color: #d4d4d4;\\n    background-color: hsla(0, 0%, 34%, 0.726);\\n    \\n  }\\n  \\n  </style>"],"names":[],"mappings":"AAyEE,YAAY,eAAC,CAAC,AACZ,OAAO,CAAE,IAAI,CACb,KAAK,CAAE,OAAO,CACd,gBAAgB,CAAE,KAAK,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,GAAG,CAAC,CAAC,KAAK,CAAC,AAE3C,CAAC"}`
 };
 async function load({fetch: fetch22}) {
   const response = await fetch22("/api");
@@ -2706,22 +2684,37 @@ async function load({fetch: fetch22}) {
 var Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let {apiComplete} = $$props;
   let {apiImage} = $$props;
+  let {isImgPublicDomain} = $$props;
   if (apiComplete.url) {
     apiImage = apiComplete.url;
   } else {
     apiImage = "no image available... Sorry something is broken... :(";
   }
+  if (apiComplete.copyright === "undefined") {
+    isImgPublicDomain = "Public Domain Image";
+  } else {
+    isImgPublicDomain = apiComplete.copyright;
+  }
   if ($$props.apiComplete === void 0 && $$bindings.apiComplete && apiComplete !== void 0)
     $$bindings.apiComplete(apiComplete);
   if ($$props.apiImage === void 0 && $$bindings.apiImage && apiImage !== void 0)
     $$bindings.apiImage(apiImage);
+  if ($$props.isImgPublicDomain === void 0 && $$bindings.isImgPublicDomain && isImgPublicDomain !== void 0)
+    $$bindings.isImgPublicDomain(isImgPublicDomain);
   $$result.css.add(css$1);
-  return `<main><section class="${"hero myHeroImage is-fullheight is-primary has-background svelte-10uwhq"}" style="${"background-image: url('" + escape2(apiImage) + "')"}">
-      <div class="${"hero-body"}"><h1 class="${"title myTextStyle svelte-10uwhq"}">${escape2(apiComplete.title)}</h1></div></section>
-    <div class="${"container"}"><br>
-      <h2 class="${"text myTextStyle svelte-10uwhq"}">${escape2(apiComplete.explanation)}</h2>
-      <br>
-      <p class="${"myTextStyle svelte-10uwhq"}">Copyright Info: ${escape2(apiComplete.copyright)}</p></div>
+  return `<main><div class="${"container"}">
+    <section class="${"hero is-fullheight has-background"}">
+      <div class="${"hero-head"}"><p class="${"text myTextStyle has-text-centered svelte-1jj7j5h"}">Astronomy Picture of the Day (APOD):</p>
+        <h1 class="${"title myTextStyle has-text-centered svelte-1jj7j5h"}">${escape2(apiComplete.title)}</h1></div>  
+      <div>
+        <nav class="${"pagination is-dark is-centered"}" role="${"navigation"}" aria-label="${"pagination"}"><a class="${"pagination-previous"}">Previous</a>
+          <a class="${"pagination-next"}">Next page</a>
+          <ul class="${"pagination-list"}"><li><a class="${"pagination-link is-current"}" aria-label="${"Goto page 1"}">1</a></li></ul></nav></div>
+
+      <div class="${"hero-body "}"><img${add_attribute("src", apiComplete.url, 0)}${add_attribute("alt", apiComplete.title, 0)}></div>
+      <div class="${"hero-foot"}"><h2 class="${"text myTextStyle svelte-1jj7j5h"}">${escape2(apiComplete.explanation)}</h2>
+        
+          <p class="${"text myTextStyle svelte-1jj7j5h"}">Image Copyright Info: ${escape2(apiComplete.copyright)}</p></div></section></div>
 
 
 </main>`;
