@@ -82,7 +82,7 @@
                   <a href="{dummyFunction()}" class="pagination-link btn is-current" aria-label="Goto page 1">{apiComplete.date}</a>
                 </li> 
               <li>
-                <p class="pagination-link btn is-current">Choose Date:</p>
+                <p class="pagination-link btn is-current">Choose Date</p>
               </li>
           </ul>
           </nav>
