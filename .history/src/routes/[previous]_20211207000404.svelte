@@ -21,6 +21,7 @@
    export let apiComplete;
    export let apiImage;
    export let isImgPublicDomain;
+   export let chooseDate = todaysDate;
   //  export let todaysDate;
   //  export let initialDate;
 
@@ -75,7 +76,7 @@
           <nav class="pagination is-dark is-centered" role="navigation" aria-label="pagination">
           <ul class="pagination-list">
             <li>
-              <a href={decrementDate()} class="pagination-previous btn">Previous Image</a>
+              <a href={apiComplete.date} class="pagination-previous btn">Previous Image</a>
             </li>
                 <li>
                   <a href="{dummyFunction()}" class="pagination-link btn is-current" aria-label="Goto page 1">{apiComplete.date}</a>

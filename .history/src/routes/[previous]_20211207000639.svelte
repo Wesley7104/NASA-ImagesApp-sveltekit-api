@@ -21,6 +21,7 @@
    export let apiComplete;
    export let apiImage;
    export let isImgPublicDomain;
+   export let chooseDate = todaysDate;
   //  export let todaysDate;
   //  export let initialDate;
 
