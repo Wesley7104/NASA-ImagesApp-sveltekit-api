@@ -72,7 +72,7 @@
           <nav class="pagination is-dark is-centered" role="navigation" aria-label="pagination">
           <ul class="pagination-list">
             <li>
-              <a href={apiComplete.date} class="pagination-previous btn">Previous Image</a>
+              <a href={decrementDate()} class="pagination-previous btn">Previous Image</a>
             </li>
                 <li>
                   <a href="{decrementDate()}" class="pagination-link btn is-current" aria-label="Goto page 1">{apiComplete.date}</a>

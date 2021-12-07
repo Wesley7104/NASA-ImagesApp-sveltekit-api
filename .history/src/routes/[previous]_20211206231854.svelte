@@ -1,6 +1,7 @@
 <script context="module">
+  import { format, addDays, subDays } from 'date-fns';
   import { todaysDate, initialDate, currentImgDate } from './stores';
-  
+  import { onDestroy } from 'svelte';
 
     export async function load({ fetch, page }) {
       const { date } = currentImgDate;
@@ -15,13 +16,9 @@
 
   </script>
   <script>
-  import { format, addDays, subDays } from 'date-fns';
-  //import { SveltyPicker } from 'svelty-picker';
-
    export let apiComplete;
    export let apiImage;
    export let isImgPublicDomain;
-   export let chooseDate = todaysDate;
   //  export let todaysDate;
   //  export let initialDate;
 
@@ -72,13 +69,13 @@
           <nav class="pagination is-dark is-centered" role="navigation" aria-label="pagination">
           <ul class="pagination-list">
             <li>
-              <a href={apiComplete.date} class="pagination-previous btn">Previous Image</a>
+              <a href={decrementDate()} class="pagination-previous btn">Previous Image</a>
             </li>
                 <li>
-                  <a href="{decrementDate()}" class="pagination-link btn is-current" aria-label="Goto page 1">{apiComplete.date}</a>
+                  <a class="pagination-link btn is-current" aria-label="Goto page 1">{apiComplete.date}</a>
                 </li> 
               <li>
-                <p class="pagination-link btn is-current">Choose Date</p>
+                <a href="/" class="pagination-next btn">Choose Date</a>
               </li>
           </ul>
           </nav>
