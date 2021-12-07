@@ -75,7 +75,7 @@
                   <a class="pagination-link btn is-current" aria-label="Goto page 1">{apiComplete.date}</a>
                 </li> 
               <li>
-                <a href="/" class="pagination-next btn">Choose Date</a>
+                <a href="" class="pagination-next btn">Choose Date</a>
               </li>
           </ul>
           </nav>

@@ -106,7 +106,7 @@ import { page } from '$app/stores';
               <nav class="pagination is-dark is-centered" role="navigation" aria-label="pagination">
                     <ul class="pagination-list">
                     <li>
-                      <a href={decrementDate()} class="pagination-previous btn">Previous Image</a>
+                      <a href={getPreviousDay()} class="pagination-previous btn">Previous Image</a>
                     </li>
                         <li>
                           <a class="pagination-link btn is-current" aria-label="Goto page 1">{apiComplete.date}</a>

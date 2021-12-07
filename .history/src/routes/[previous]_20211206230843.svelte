@@ -1,13 +1,30 @@
 <script context="module">
-  import { format, addDays, subDays } from 'date-fns';
-  import { todaysDate, initialDate, currentImgDate } from './stores';
-  import { onDestroy } from 'svelte';
+  import {currentImgDate} from './stores';
 
     export async function load({ fetch, page }) {
       const { date } = currentImgDate;
       const response = await fetch('/api/${date}');
       if (response.ok) return { props: { apiComplete: await response.json() } };
- 
+
+  //   function getImgCopyrightData(apiComplete) {
+  //   if (apiComplete.copyright === "undefined"){
+  //     isImgPublicDomain = "Public Domain Image";
+  //   } else {
+  //     isImgPublicDomain = apiData.copyright;
+  //   }
+  //    return isImgPublicDomain;
+  //  };
+
+  //  function getTodaysDate() {
+  //   todaysDate = toString(apiComplete.date);
+  //   initialDate = todaysDate;
+  //  };
+
+  //  getTodaysDate();
+  //  console.log(initialDate);
+  //  getImgCopyrightData(apiComplete.copyright);
+  //  console.log(isImgPublicDomain);
+
     return {
       status: response.status,
       error: new Error()
@@ -27,17 +44,6 @@
   } else {
     apiImage = "no image available... Sorry something is broken... :(";
   }
-
-  // check for copyright of image
-  isImgPublicDomain = apiComplete.copyright || "Public Domain Image";
-
-  //check for media type (if video then add video thumbnail and url)
-  if (apiComplete.media_type === "video") {
-      apiImage = apiComplete.thumbnail_url;
-      apiVideo = apiComplete.url;
-    } else {
-      apiImage = apiComplete.url;
-    }
 
   export function decrementDate() {
       current = subDays(new Date($currentImgDate), 0);
@@ -75,7 +81,7 @@
                   <a class="pagination-link btn is-current" aria-label="Goto page 1">{apiComplete.date}</a>
                 </li> 
               <li>
-                <a href="/" class="pagination-next btn">Choose Date</a>
+                <a href="" class="pagination-next btn">Choose Date</a>
               </li>
           </ul>
           </nav>

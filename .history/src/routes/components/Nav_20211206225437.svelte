@@ -14,7 +14,7 @@
                     </h4>
                   </div>
                 <div class="navbar-end level-item">
-                    <div class="nabar-item column marginTop centerText" align:right>
+                    <div class="nabar-item column marginTop" align:right>
                         <a href="https://github.com/Wesley7104" class=" is-github is-dark">
                             <span class="icon is-medium is-dark">
                                 <i class="fab fa-lg fa-github" style="color:lightgray"></i>

@@ -22,7 +22,7 @@
 <style>
 
 .centerItem{
-  align-content: center;
+  align: center;
 }
 
 </style>

@@ -19,6 +19,7 @@
     "bulma-social": "^2.1.0",
     "clean": "^4.0.2",
     "date-fns": "^2.27.0",
-    "node-sass": "^6.0.1"
+    "node-sass": "^6.0.1",
+    "svelty-picker": "^1.2.1"
   }
 }

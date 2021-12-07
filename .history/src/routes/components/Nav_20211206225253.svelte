@@ -8,13 +8,13 @@
                     </a>
                 </div>
                 <div class="navbar-item column level-item">
-                    <h4 style="color:dimgray" class="marginTop centerText">
+                    <h4 style="color:dimgray margin-top: 5px">
                       App Created By: <a href="https://www.facebook.com/wesley.randolph.3/">Wesley Randolph </a>@  
                       <a href="/https://randev.tech">RanDev.Co</a>
                     </h4>
                   </div>
                 <div class="navbar-end level-item">
-                    <div class="nabar-item column marginTop centerText" align:right>
+                    <div class="nabar-item column" align:right>
                         <a href="https://github.com/Wesley7104" class=" is-github is-dark">
                             <span class="icon is-medium is-dark">
                                 <i class="fab fa-lg fa-github" style="color:lightgray"></i>
@@ -30,6 +30,6 @@
                 text-align: center;
             }
             .marginTop {
-                margin-top: 12px;
+                margin-top: 5px;
             }
         </style>
