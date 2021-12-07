@@ -53,7 +53,7 @@
     };
 
     export function dummyFunction() {
-      
+      return nothing;
     };
    
   </script>
