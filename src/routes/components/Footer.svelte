@@ -21,5 +21,6 @@
         </div>
         <i class="fa-solid fa-rocket text-slate-400"></i>
       </div>
+      <p class="text-slate-400 text-xs"><i class="fa-solid fa-exclamation-triangle text-warning"></i> This site is not affiliated with NASA and is not endorsed by NASA. This is a personal project using the NASA APOD API. The NASA APOD API is a public API that is free to use. Enjoy! <i class="fa-solid fa-exclamation-triangle text-warning"></i></p>
   </div>
 </footer>
