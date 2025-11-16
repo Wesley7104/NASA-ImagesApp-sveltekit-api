@@ -1,8 +1,8 @@
 import { format } from 'date-fns';
+import { NASA_API_KEY } from '$env/static/private';
 
 const apiURL = "https://api.nasa.gov/planetary/apod?api_key=";
-const apiURL2 = "72fi8R1OeCsgajxBRDdYjMKaGIndl5dl3CJT4wAc&thumbs=true";
-const apiURLComplete = apiURL.concat(apiURL2);
+const thumbsParam = "&thumbs=true";
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ url }) {
@@ -11,7 +11,8 @@ export async function GET({ url }) {
     const dateToUse = dateParam || format(new Date(), 'yyyy-MM-dd');
     
     const apiDateParam = "&date=" + dateToUse;
-    const apiURLWithDate = apiURLComplete.concat(apiDateParam);
+    const apiURLComplete = apiURL + NASA_API_KEY + thumbsParam;
+    const apiURLWithDate = apiURLComplete + apiDateParam;
     const response = await fetch(apiURLWithDate);
     const data = await response.json();
     

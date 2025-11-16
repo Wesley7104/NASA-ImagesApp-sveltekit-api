@@ -4,3 +4,5 @@ node_modules
 /build
 /functions
 API_KEYS.env
+.env
+.env.local
