@@ -89,7 +89,7 @@
 
 <main class="min-h-screen bg-base-300">
   {#if apiComplete}
-  <div class="container mx-auto px-2 md:px-4 py-2 md:py-8">
+  <div class="container mx-auto px-2 md:px-4 py-1">
     <!-- title Section -->
     <section>
       <div class="flex flex-row items-center justify-between gap-1 md:gap-2 mb-0.5 md:mb-1 text-xs sm:text-sm md:text-base">
@@ -110,18 +110,17 @@
         </div>
       </div>
       <!-- image section -->
-      <div class="card bg-neutral shadow-xl w-full h-full p-2 mb-4">
-      <div class="relative w-full min-h-[70vh] overflow-hidden rounded-lg">
-        <img class="absolute inset-0 w-full h-full object-cover object-center" src={apiImage} alt={apiComplete.title}>
-        <div class="absolute inset-0 flex items-center justify-center">
+      <div class="card bg-neutral shadow-xl w-full h-auto p-2 mb-4">
+        <img class="w-full h-auto object-contain md:object-cover object-center" src={apiImage} alt={apiComplete.title}>
+        <div class="flex items-center justify-center">
           <div class="container mx-auto px-4">
             {#if apiVideo}
               <a class="btn btn-lg bg-gray-700 hover:bg-gray-600 text-white" href={apiVideo} target="_blank" rel="noopener noreferrer">Play Video</a>
             {/if}
           </div>
         </div>
-        </div>
       </div>
+      
       <!-- text section -->
       <div class="container mx-auto px-2 md:px-0">
         <div class="space-y-2">
