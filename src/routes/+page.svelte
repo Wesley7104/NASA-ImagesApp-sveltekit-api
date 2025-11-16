@@ -123,7 +123,7 @@
         </div>
       </div>
       <!-- text section -->
-      <div class="container mx-auto px-4">
+      <div class="container mx-auto px-2 md:px-0">
         <div class="space-y-2">
           <div class="card bg-neutral shadow-xl">
             <div class="card-body">
