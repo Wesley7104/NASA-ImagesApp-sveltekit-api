@@ -168,17 +168,17 @@
 
   <!-- Date Picker Modal -->
   <div class="modal" class:modal-open={datePickerOpen} role="dialog" aria-modal="true">
-    <div class="modal-box bg-base-100">
+    <div class="modal-box bg-neutral">
       <h3 class="font-bold text-lg mb-4">Choose a Date</h3>
       <input 
         type="date" 
         bind:value={selectedDate}
         max={format(new Date(), 'yyyy-MM-dd')}
-        class="input input-bordered w-full mb-4"
+        class="input input-bordered bg-neutral w-full mb-4"
       />
       <div class="modal-action">
-        <button class="btn" onclick={closeDatePicker}>Cancel</button>
-        <button class="btn btn-primary" onclick={handleDateSelect}>Go to Date</button>
+        <button class="btn hover:bg-neutral-content hover:text-neutral p-2" onclick={closeDatePicker}>Cancel</button>
+        <button class="btn hover:bg-neutral-content hover:text-neutral p-2" onclick={handleDateSelect}>Go to Date</button>
       </div>
     </div>
     <button 
