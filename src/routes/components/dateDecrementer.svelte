@@ -1,13 +1,15 @@
 <script>
-  import { todaysDate, initialDate, currentImgDate } from '../stores';
+  import { format, subDays } from 'date-fns';
+  import { currentImgDate } from '../stores';
 
-	function decrementDate() {
-        let tempDate = subDays(new Date(currentImgDate), 0);
-		currentImgDate.update(format(new Date(tempDate), 'yyyy-MM-dd'));
-        console.log(tempDate, currentImgDate);
-	}
+  function decrementDate() {
+    const currentDate = $currentImgDate;
+    const tempDate = subDays(new Date(currentDate), 1);
+    const formattedDate = format(tempDate, 'yyyy-MM-dd');
+    currentImgDate.set(formattedDate);
+  }
 </script>
 
-<button on:click={decrementDate}>
-	-
+<button class="btn btn-circle btn-outline" onclick={decrementDate}>
+  -
 </button>

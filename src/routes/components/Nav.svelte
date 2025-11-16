@@ -1,35 +1,22 @@
-
-        <nav class="navbar is-bold level">
-            <div class="container columns">
-                <div class="column is-1"></div>
-                <div class="column navbar-brand">
-                    <a class="navbar-item column level-item" href="/">
-                        <h1 class="title is-6"><i class="fa fa-meteor"></i>  NASA APOD Image Viewer App</h1>
-                    </a>
-                </div>
-                <div class="navbar-item column level-item">
-                    <h4 style="color:dimgray" class="marginTop centerText">
-                      App Created By: <a href="https://www.facebook.com/wesley.randolph.3/">Wesley Randolph </a>@  
-                      <a href="/https://randev.tech">RanDev.Co</a>
-                    </h4>
-                  </div>
-                <div class="navbar-end level-item">
-                    <div class="nabar-item column marginTop centerText" align:right>
-                        <a href="https://github.com/Wesley7104" class=" is-github is-dark">
-                            <span class="icon is-medium is-dark">
-                                <i class="fab fa-lg fa-github" style="color:lightgray"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
+<div class="navbar bg-neutral shadow-lg py-1 md:py-2 min-h-0 md:min-h-fit">
+    <div class="container mx-auto flex flex-row justify-between items-center gap-2 px-2 md:px-4">
+        <div class="navbar-start flex-shrink-0">
+            <a class="btn btn-ghost btn-sm md:btn-md text-xs md:text-xl hover:btn-outline hover:bg-neutral-content hover:text-neutral px-1 md:px-4" href="/">
+                <i class="fa fa-meteor md:mr-2"></i>
+                <span class="hidden md:inline">NASA APOD Image Viewer App</span>
+                <span class="md:hidden">NASA APOD</span>
+            </a>
+        </div>
+        <div class="navbar-end flex items-center gap-1 md:gap-4">
+            <div class="hidden md:flex">
+                <h4 class="text-gray-500 text-sm text-center">
+                    App Created By: <a href="https://www.facebook.com/wesley.randolph.3/" target="_blank" class="link text-gray-400  hover:text-neutral-content">Wesley Randolph</a> @  
+                    <a href="https://randev.tech" target="_blank" class="link text-gray-400 hover:text-neutral-content">RanDev.Tech</a>
+                </h4>
             </div>
-        </nav>
-
-        <style>
-            .centerText{
-                text-align: center;
-            }
-            .marginTop {
-                margin-top: 12px;
-            }
-        </style>
+            <a href="https://github.com/Wesley7104" target="_blank" class="btn btn-ghost btn-circle btn-sm md:btn-md hover:btn-outline hover:bg-neutral-content hover:text-neutral" aria-label="GitHub profile">
+                <i class="fa-brands fa-sm md:fa-lg fa-github"></i>
+            </a>
+        </div>
+    </div>
+</div>
