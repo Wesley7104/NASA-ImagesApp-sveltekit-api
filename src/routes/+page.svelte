@@ -165,7 +165,16 @@
         <button class="btn btn-primary" onclick={handleDateSelect}>Go to Date</button>
       </div>
     </div>
-    <form method="dialog" class="modal-backdrop" onclick={closeDatePicker}>
-      <button type="button">close</button>
-    </form>
+    <button 
+      type="button" 
+      class="modal-backdrop" 
+      onclick={closeDatePicker}
+      onkeydown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          closeDatePicker();
+        }
+      }}
+      aria-label="Close modal"
+    ></button>
   </div>
